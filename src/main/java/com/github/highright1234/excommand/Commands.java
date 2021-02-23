@@ -30,8 +30,8 @@ public class Commands implements CommandExecutor {
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("sample.txt"), 1);
             bufferedWriter.write(jsonObject.toString());
-            bufferedWriter.close();
             bufferedWriter.flush();
+            bufferedWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
