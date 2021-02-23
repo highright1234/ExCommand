@@ -2,8 +2,5 @@ name: ExCommand
 version: @version@
 main: com.github.highright1234.excommand.ExCommand
 api-version: 1.16
-commands:
-  excommand:
-    usage: /excommand help
-    description: this command is ExCommand plugin command
-    aliases: [ex]
+depend:
+  - CommandAPI
