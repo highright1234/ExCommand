@@ -1,0 +1,8 @@
+name: ExCommand
+version: @version@
+main: com.github.highright1234.excommand.ExCommand
+api-version: 1.16
+commands:
+  ec:
+    usage: /ec help
+    description: this command is ExCommand plugin command
