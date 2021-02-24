@@ -33,7 +33,11 @@ public class Commands implements CommandExecutor {
             case 2:
                 if (args[0].equals("reload"))
                     if (args[1].equals("config"))
-                        Functions.reloadConfig();
+                        if (Functions.reloadConfig()) {
+                            sender.sendMessage(ChatColor.GREEN + language.get("reloadSuccessfully"));
+                        } else {
+                            sender.sendMessage(ChatColor.GREEN + language.get("reloadFailed"));
+                        }
 //            ScoreboardManager manager = Bukkit.getScoreboardManager();
 //            Scoreboard board = Objects.requireNonNull(manager).getNewScoreboard();
 //            Objective objective = board.registerNewObjective(args[1], args[2], args[3]);
