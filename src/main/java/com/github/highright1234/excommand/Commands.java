@@ -35,24 +35,28 @@ public class Commands implements CommandExecutor {
                 printHelp(sender, args[0]);
                 return true;
             case 2:
-                if (args[0].equals("reload")) {
-                    if (args[1].equals("config")) {
-                        if (Functions.reloadConfig()) {
-                            sender.sendMessage(ChatColor.GREEN + language.get("reloadSuccessfully"));
-                        } else {
-                            sender.sendMessage(ChatColor.GREEN + language.get("reloadFailed"));
+                switch (args[0]) {
+                    case "reload":
+                        if (args[1].equals("config")) {
+                            if (Functions.reloadConfig()) {
+                                sender.sendMessage(ChatColor.GREEN + language.get("reloadSuccessfully"));
+                            } else {
+                                sender.sendMessage(ChatColor.GREEN + language.get("reloadFailed"));
+                            }
                         }
-                    }
-                } else if (args[0].equals("remove")) {
-                    try {
-                        manager.getMainScoreboard().getObjective(args[1]);
-                        objectiveData.remove(args[1]);
-                    } catch(NullPointerException e) {
-                        sender.sendMessage(ChatColor.RED+language.get("unknownName"));
-                    }
-                    return true;
+                        return true;
+                    case "remove":
+                        try {
+                            manager.getMainScoreboard().getObjective(args[1]);
+                            objectiveData.remove(args[1]);
+                        } catch (NullPointerException e) {
+                            sender.sendMessage(ChatColor.RED + language.get("unknownName"));
+                        }
+                        return true;
+                    case "list":
+                        sender.sendMessage(objectiveData + "");
+                        return true;
                 }
-                return true;
             case 4:
                 if (args[0].equals("add")) {
                     sender.sendMessage(ChatColor.GREEN+args[1]+" "+args[2]+" "+args[3]);
