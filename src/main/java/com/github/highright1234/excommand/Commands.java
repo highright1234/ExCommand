@@ -28,13 +28,18 @@ public class Commands implements CommandExecutor {
     }
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        switch (args.length) {
+            case 0:
+                printHelp(sender, null);
+            case 1:
+                printHelp(sender, args[0]);
 
-        ScoreboardManager manager = Bukkit.getScoreboardManager();
-        Scoreboard board = Objects.requireNonNull(manager).getNewScoreboard();
-        Objective objective = board.registerNewObjective(args[0], args[1], args[2]);
+            ScoreboardManager manager = Bukkit.getScoreboardManager();
+            Scoreboard board = Objects.requireNonNull(manager).getNewScoreboard();
+            Objective objective = board.registerNewObjective(args[0], args[1], args[2]);
 
-        writeAndSave("name", args[3]);
-
+            writeAndSave("name", args[3]);
+        }
         return true;
     }
 }
