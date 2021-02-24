@@ -1,7 +1,7 @@
 # ExCommand
 English:
 -------------
-This Plugin is make custom scoreboard criteria
+This Plugin can make custom scoreboard criteria
 
 exmaple: rightclick criteria
 Discord: https://discord.gg/pHQxbM2k8x
