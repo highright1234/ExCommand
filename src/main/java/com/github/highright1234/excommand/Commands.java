@@ -5,6 +5,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+
 import static com.github.highright1234.excommand.Vars.language;
 public class Commands implements CommandExecutor {
 
@@ -38,6 +39,7 @@ public class Commands implements CommandExecutor {
                         } else {
                             sender.sendMessage(ChatColor.GREEN + language.get("reloadFailed"));
                         }
+                return true;
 //            ScoreboardManager manager = Bukkit.getScoreboardManager();
 //            Scoreboard board = Objects.requireNonNull(manager).getNewScoreboard();
 //            Objective objective = board.registerNewObjective(args[1], args[2], args[3]);

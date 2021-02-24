@@ -13,8 +13,15 @@ public class Vars {
     public static Gson gsonObj = new Gson();
     public static JsonObject jsonObject = new JsonObject();
     public static String now_language = "en_us";
+    public static HashMap<String, Object> events = new HashMap<>();
     public static HashMap<String, String> language = new HashMap<>();
 
+    public static void Setup() {
+
+    }
+
+
+    
     public static void language_setup() {
         language.clear();
         if (now_language.equals("ko_kr")) {
