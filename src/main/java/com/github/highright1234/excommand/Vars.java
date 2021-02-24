@@ -2,11 +2,14 @@ package com.github.highright1234.excommand;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.google.gson.stream.JsonReader;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.scoreboard.ScoreboardManager;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.HashMap;
 
 import static com.github.highright1234.excommand.Functions.languageSetting;
@@ -18,6 +21,7 @@ public class Vars {
     public static Gson gsonObj = new Gson();
     public static JsonObject jsonObject = new JsonObject();
     public static String now_language = "en_us";
+    public static String objectiveDataFileDirectory = "objectiveData.json";
     public static HashMap<String, Object> events = new HashMap<>();
     public static HashMap<String, String> language = new HashMap<>();
     public static HashMap<String, String> objectiveData = new HashMap<>();
@@ -26,6 +30,13 @@ public class Vars {
         config = ExCommand.getPlugin(ExCommand.class).getConfig();
         languageSetting();
         languageInit();
+        Gson gson = new Gson();
+        try {
+            JsonReader reader = new JsonReader(new FileReader(objectiveDataFileDirectory));
+            objectiveData = gson.fromJson(reader, Vars.class);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
 

@@ -4,6 +4,8 @@ package com.github.highright1234.excommand;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Objects;
 
 import static com.github.highright1234.excommand.Vars.*;
@@ -14,9 +16,24 @@ public class Functions {
 
     }
 
-    public static void writeAndSave(String property, String value) {
-        jsonObject.addProperty(property, value);
-        saveJson();
+    public static void writeAndSave(String key, String value) {
+        objectiveData.put(key, value);
+        try {
+            FileWriter fw = new FileWriter("objectiveData.json");
+            gsonObj.toJson(objectiveData, fw);
+            saveJson();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static boolean checkCriteria(String input) {
+        for (String i : objectiveData.keySet()) {
+            if (input.equals(i)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static boolean languageSetting() {

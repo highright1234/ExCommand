@@ -9,8 +9,8 @@ import org.bukkit.scoreboard.Objective;
 
 import java.util.Objects;
 
-import static com.github.highright1234.excommand.Vars.language;
-import static com.github.highright1234.excommand.Vars.manager;
+import static com.github.highright1234.excommand.Vars.*;
+import static com.github.highright1234.excommand.Functions.writeAndSave;
 
 public class Commands implements CommandExecutor {
 
@@ -53,8 +53,10 @@ public class Commands implements CommandExecutor {
                 return true;
             case 4:
                 if (args[0].equals("add")) {
+                    writeAndSave(args[1], args[2]);
                     Objective objective = manager.getMainScoreboard().registerNewObjective(args[1], args[2], args[3]);
                     sender.sendMessage(objective.getCriteria());
+
                     return true;
                 }
             default:
