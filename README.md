@@ -7,7 +7,7 @@ exmaple: rightclick criteria
 Discord: https://discord.gg/pHQxbM2k8x
 
 
-###※THIS PLUGIN IS NOT COMPLETED※
+※THIS PLUGIN IS NOT COMPLETED※
 ----------
 
 한글:
@@ -17,5 +17,5 @@ Discord: https://discord.gg/pHQxbM2k8x
 예제: 좌클릭하면 스코어 1+
 디스코드: https://discord.gg/pHQxbM2k8x
 
-###※이 플러그인은 완성형이 아닙니다※
+※이 플러그인은 완성형이 아닙니다※
 ----------
