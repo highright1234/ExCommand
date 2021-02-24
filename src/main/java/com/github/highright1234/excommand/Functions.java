@@ -19,7 +19,7 @@ public class Functions {
 
     public static void save() {
         try {
-            FileWriter fw = new FileWriter("objectiveData.json");
+            FileWriter fw = new FileWriter(objectiveDataFileDirectory);
             gsonObj.toJson(objectiveData, fw);
             fw.flush();
             fw.close();

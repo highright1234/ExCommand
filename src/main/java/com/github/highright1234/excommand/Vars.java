@@ -21,7 +21,7 @@ public class Vars {
     public static Gson gsonObj = new Gson();
     public static JsonObject jsonObject = new JsonObject();
     public static String now_language = "en_us";
-    public static String objectiveDataFileDirectory = "objectiveData.json";
+    public static File objectiveDataFileDirectory = new File(ExCommand.getPlugin(ExCommand.class).getDataFolder(),"objectiveData.json");
     public static HashMap<String, Object> events = new HashMap<>();
     public static HashMap<String, String> language = new HashMap<>();
     public static HashMap<String, String> objectiveData = new HashMap<>();
