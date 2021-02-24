@@ -1,2 +1,2 @@
-create_help:
-remove_help:
+create_help: /ex create <objective> <criteria> [displayName]
+remove_help: /ex remove <objective>

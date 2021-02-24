@@ -23,6 +23,12 @@ public class Commands implements CommandExecutor {
             sender.sendMessage(ChatColor.RED+"/ex <create/remove/reload>");
         } else if (helpType.equals("create")) {
             sender.sendMessage(ChatColor.RED+"/ex create <>");
+        } else if (helpType.equals("remove")) {
+            sender.sendMessage(ChatColor.RED+"/ex remove <>");
+        } else if (helpType.equals("reload")) {
+            sender.sendMessage(ChatColor.RED + "/ex reload <all/config/language>");
+        } else {
+            sender.sendMessage(ChatColor.RED+"/ex <create/remove/reload>");
         }
     }
 
@@ -30,8 +36,12 @@ public class Commands implements CommandExecutor {
         switch (args.length) {
             case 0:
                 printHelp(sender, null);
+                return true;
             case 1:
                 printHelp(sender, args[0]);
+                return true;
+            case 2:
+
 //            ScoreboardManager manager = Bukkit.getScoreboardManager();
 //            Scoreboard board = Objects.requireNonNull(manager).getNewScoreboard();
 //            Objective objective = board.registerNewObjective(args[1], args[2], args[3]);
