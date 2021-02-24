@@ -34,6 +34,9 @@ public class Vars {
         try {
             JsonReader reader = new JsonReader(new FileReader(objectiveDataFileDirectory));
             objectiveData = gson.fromJson(reader, Vars.class);
+            if (objectiveData==null) {
+                objectiveData = new HashMap<>();
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

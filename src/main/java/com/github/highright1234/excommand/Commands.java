@@ -13,7 +13,7 @@ import static com.github.highright1234.excommand.Vars.*;
 import static com.github.highright1234.excommand.Functions.writeAndSave;
 
 public class Commands implements CommandExecutor {
-
+    Objective objective;
     private void printHelp(CommandSender sender,String helpType) {
         if (helpType == null) {
             sender.sendMessage(ChatColor.RED+"/ec <add/remove/reload>");
@@ -53,10 +53,16 @@ public class Commands implements CommandExecutor {
                 return true;
             case 4:
                 if (args[0].equals("add")) {
+                    sender.sendMessage(ChatColor.GREEN+args[1]+" "+args[2]+" "+args[3]);
+                    sender.sendMessage(objectiveData+"");
                     writeAndSave(args[1], args[2]);
-                    Objective objective = manager.getMainScoreboard().registerNewObjective(args[1], args[2], args[3]);
-                    sender.sendMessage(objective.getCriteria());
-
+                    try {
+                        objective = manager.getMainScoreboard().registerNewObjective(args[1], args[2], args[3]);
+                    } catch (IllegalArgumentException e) {
+                        sender.sendMessage(ChatColor.RED+"이미 있는 오브젝티브이름입니다!");
+                        return true;
+                    }
+                    sender.sendMessage(ChatColor.GREEN+language.get("addComplete"));
                     return true;
                 }
             default:

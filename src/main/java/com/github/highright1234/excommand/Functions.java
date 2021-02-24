@@ -12,21 +12,21 @@ import static com.github.highright1234.excommand.Vars.*;
 
 public class Functions {
 
-    public static void saveJson() {
-
-    }
-
     public static void writeAndSave(String key, String value) {
         objectiveData.put(key, value);
+        save();
+    }
+
+    public static void save() {
         try {
             FileWriter fw = new FileWriter("objectiveData.json");
             gsonObj.toJson(objectiveData, fw);
-            saveJson();
+            fw.flush();
+            fw.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
     public static boolean checkCriteria(String input) {
         for (String i : objectiveData.keySet()) {
             if (input.equals(i)) {
