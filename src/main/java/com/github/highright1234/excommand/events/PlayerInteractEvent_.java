@@ -9,15 +9,15 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import java.util.HashMap;
 
 public class PlayerInteractEvent_ implements EventInterface, Listener {
-    private HashMap<Player, Boolean> hashmap = new HashMap<>();
+    private HashMap<Player, Boolean> hashMap = new HashMap<>();
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent e) {
-        hashmap.put(e.getPlayer(), true);
+        hashMap.put(e.getPlayer(), true);
 }
 
     @Override
     public HashMap<Player, Boolean> onEvent() {
-        return hashmap;
+        return hashMap;
     }
 
 }

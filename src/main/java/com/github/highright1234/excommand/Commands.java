@@ -7,10 +7,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.scoreboard.Objective;
 
-import java.util.Objects;
-
-import static com.github.highright1234.excommand.Vars.*;
 import static com.github.highright1234.excommand.Functions.writeAndSave;
+import static com.github.highright1234.excommand.Vars.*;
 
 public class Commands implements CommandExecutor {
     Objective objective;
@@ -46,8 +44,12 @@ public class Commands implements CommandExecutor {
                         }
                     }
                 } else if (args[0].equals("remove")) {
-                    Objects.requireNonNull(manager.getMainScoreboard().getObjective(args[1])).unregister();
-
+                    try {
+                        manager.getMainScoreboard().getObjective(args[1]);
+                        objectiveData.remove(args[1]);
+                    } catch(NullPointerException e) {
+                        sender.sendMessage(ChatColor.RED+language.get("unknownName"));
+                    }
                     return true;
                 }
                 return true;
