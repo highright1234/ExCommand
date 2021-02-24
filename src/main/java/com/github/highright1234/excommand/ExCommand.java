@@ -6,7 +6,7 @@ import java.util.Objects;
 
 import static com.github.highright1234.excommand.Functions.languageSetting;
 import static com.github.highright1234.excommand.Vars.config;
-import static com.github.highright1234.excommand.Vars.language_setup;
+import static com.github.highright1234.excommand.Vars.languageInit;
 
 public final class ExCommand extends JavaPlugin {
 
@@ -14,7 +14,7 @@ public final class ExCommand extends JavaPlugin {
     public void onEnable() {
         config = getConfig();
         languageSetting();
-        language_setup();
+        languageInit();
         Objects.requireNonNull(getCommand("excommand")).setExecutor(new Commands());
         // Plugin startup logic
     }

@@ -41,7 +41,7 @@ public class Functions {
         config = YamlConfiguration.loadConfiguration(configFile);
         boolean languageSetting_check = languageSetting();
         if (languageSetting_check) {
-            language_setup();
+            languageInit();
             return true;
         } else return false;
     }
