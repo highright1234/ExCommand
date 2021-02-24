@@ -57,12 +57,6 @@ public class Commands implements CommandExecutor {
                     sender.sendMessage(objective.getCriteria());
                     return true;
                 }
-
-//            ScoreboardManager manager = Bukkit.getScoreboardManager();
-//            Scoreboard board = Objects.requireNonNull(manager).getNewScoreboard();
-//            Objective objective = board.registerNewObjective(args[1], args[2], args[3]);
-//
-//            writeAndSave("name", args[4]);
             default:
                 printHelp(sender, null);
         }

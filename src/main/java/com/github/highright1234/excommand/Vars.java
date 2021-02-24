@@ -9,6 +9,8 @@ import org.bukkit.scoreboard.ScoreboardManager;
 import java.io.File;
 import java.util.HashMap;
 
+import static com.github.highright1234.excommand.Functions.languageSetting;
+
 public class Vars {
     public static ScoreboardManager manager = Bukkit.getScoreboardManager();
     public static File configFile = new File(ExCommand.getPlugin(ExCommand.class).getDataFolder(), "config.yml");
@@ -20,7 +22,9 @@ public class Vars {
     public static HashMap<String, String> language = new HashMap<>();
     public static HashMap<String, String> objectiveData = new HashMap<>();
 
-    public static void Setup() {
+    public static void setup() {
+        config = ExCommand.getPlugin(ExCommand.class).getConfig();
+        languageSetting();
         languageInit();
     }
 
@@ -34,12 +38,14 @@ public class Vars {
             language.put("reloadSuccessfully", "리로드가 성공적으로 완료되었습니다");
             language.put("reloadFailed", "리로드를 실패하였습니다");
             language.put("addComplete", "성공적으로 오브젝티브를 만들었습니다");
+            language.put("removeComplete", "성공적으로 오브젝티브를 제거하였습니다");
         } else {
             language.put("add", "/ec add <objective> <criteria> [displayName]");
             language.put("remove", "/ec remove <objective>");
             language.put("reloadSuccessfully", "reload is Successfully Complete");
             language.put("reloadFailed", "reload is Failed");
             language.put("addComplete", "Completed a add objective");
+            language.put("removeComplete", "Completed a remove objective");
         }
     }
 }
