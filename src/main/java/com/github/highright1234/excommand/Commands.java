@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.Objects;
 
 import static com.github.highright1234.excommand.Functions.writeAndSave;
-import static com.github.highright1234.excommand.Vars.jsonObject;
 
 public class Commands implements CommandExecutor {
 
@@ -23,7 +22,7 @@ public class Commands implements CommandExecutor {
         if (helpType == null) {
             sender.sendMessage(ChatColor.RED+"/ex <create/remove/reload>");
         } else if (helpType.equals("create")) {
-            sender.sendMessage(ChatColor.RED+"/ex create <Score>");
+            sender.sendMessage(ChatColor.RED+"/ex create <>");
         }
     }
 
@@ -33,12 +32,11 @@ public class Commands implements CommandExecutor {
                 printHelp(sender, null);
             case 1:
                 printHelp(sender, args[0]);
-
             ScoreboardManager manager = Bukkit.getScoreboardManager();
             Scoreboard board = Objects.requireNonNull(manager).getNewScoreboard();
-            Objective objective = board.registerNewObjective(args[0], args[1], args[2]);
+            Objective objective = board.registerNewObjective(args[1], args[2], args[3]);
 
-            writeAndSave("name", args[3]);
+            writeAndSave("name", args[4]);
         }
         return true;
     }
