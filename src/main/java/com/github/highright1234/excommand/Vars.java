@@ -33,7 +33,7 @@ public class Vars {
         Gson gson = new Gson();
         try {
             JsonReader reader = new JsonReader(new FileReader(objectiveDataFileDirectory));
-            objectiveData = gson.fromJson(reader, Vars.class);
+            objectiveData = gson.fromJson(reader, HashMap.class);
             if (objectiveData==null) {
                 objectiveData = new HashMap<>();
             }
