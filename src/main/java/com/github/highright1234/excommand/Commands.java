@@ -1,10 +1,8 @@
 package com.github.highright1234.excommand;
 
-import dev.jorel.commandapi.CommandAPICommand;
-import dev.jorel.commandapi.CommandPermission;
-import dev.jorel.commandapi.arguments.Argument;
-import dev.jorel.commandapi.arguments.GreedyStringArgument;
+
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -23,9 +21,9 @@ public class Commands implements CommandExecutor {
 
     private void printHelp(CommandSender sender,String helpType) {
         if (helpType == null) {
-            sender.sendMessage("asdf");
-        } else if (helpType.equals("reload")) {
-
+            sender.sendMessage(ChatColor.RED+"/ex <create/remove/reload>");
+        } else if (helpType.equals("create")) {
+            sender.sendMessage(ChatColor.RED+"/ex create <Score>");
         }
     }
 

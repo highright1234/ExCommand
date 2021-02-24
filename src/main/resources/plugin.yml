@@ -6,4 +6,4 @@ commands:
   excommand:
     aliases: [ex, ec]
     description: excommand plugin command
-    usage: &4/ex <create/remove>
+    usage: &4/ex <create/remove/relaod>

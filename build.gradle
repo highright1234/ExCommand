@@ -12,8 +12,6 @@ targetCompatibility = '1.8'
 
 repositories {
     mavenCentral()
-    maven { url = "https://raw.githubusercontent.com/JorelAli/CommandAPI/mvn-repo/" }
-    maven { url = "https://repo.codemc.org/repository/maven-public/" }
     maven {
         name = 'spigotmc-repo'
         url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
@@ -25,8 +23,6 @@ repositories {
 }
 
 dependencies {
-    compileOnly "dev.jorel:commandapi-annotations:5.3"
-    annotationProcessor "dev.jorel:commandapi-annotations:5.3"
     implementation 'com.google.code.gson:gson:2.8.6'
     compileOnly 'org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT'
 }
