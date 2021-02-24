@@ -16,15 +16,15 @@ public class Commands implements CommandExecutor {
 
     private void printHelp(CommandSender sender,String helpType) {
         if (helpType == null) {
-            sender.sendMessage(ChatColor.RED+"/ec <create/remove/reload>");
-        } else if (helpType.equals("create")) {
-            sender.sendMessage(ChatColor.RED+language.get("create"));
+            sender.sendMessage(ChatColor.RED+"/ec <add/remove/reload>");
+        } else if (helpType.equals("add")) {
+            sender.sendMessage(ChatColor.RED+language.get("add"));
         } else if (helpType.equals("remove")) {
             sender.sendMessage(ChatColor.RED+language.get("remove"));
         } else if (helpType.equals("reload")) {
             sender.sendMessage(ChatColor.RED + "/ec reload <all/config>");
         } else {
-            sender.sendMessage(ChatColor.RED+"/ec <create/remove/reload>");
+            sender.sendMessage(ChatColor.RED+"/ec <add/remove/reload>");
         }
     }
 
