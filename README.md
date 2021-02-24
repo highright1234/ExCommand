@@ -4,6 +4,7 @@ English:
 This Plugin is make custom scoreboard criteria
 
 exmaple: rightclick criteria
+Discord: https://discord.gg/pHQxbM2k8x
 
 
 한글:
@@ -11,3 +12,4 @@ exmaple: rightclick criteria
 이 플러그인은 커스텀 스코어보드 기준을 만듭니다
 
 예제: 좌클릭하면 스코어 1+
+디스코드: https://discord.gg/pHQxbM2k8x
