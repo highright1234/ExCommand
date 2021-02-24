@@ -24,7 +24,7 @@ public class Vars {
     public static File objectiveDataFileDirectory = new File(ExCommand.getPlugin(ExCommand.class).getDataFolder(),"objectiveData.json");
     public static HashMap<String, Object> events = new HashMap<>();
     public static HashMap<String, String> language = new HashMap<>();
-    public static HashMap<String, String> objectiveData = new HashMap<>();
+    public static HashMap<String, String> objectiveData;
 
     public static void setup() {
         config = ExCommand.getPlugin(ExCommand.class).getConfig();
