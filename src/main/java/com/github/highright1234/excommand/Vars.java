@@ -53,6 +53,7 @@ public class Vars {
             language.put("reloadFailed", "리로드를 실패하였습니다");
             language.put("addComplete", "성공적으로 오브젝티브를 만들었습니다!");
             language.put("removeComplete", "성공적으로 오브젝티브를 제거하였습니다!");
+            language.put("objectAlreadyName","이미 있는 오브젝티브 이름입니다!");
             language.put("unknownName", "알수없는 이름입니다");
         } else {
             language.put("add", "/ec add <objective> <criteria> [displayName]");
@@ -61,6 +62,7 @@ public class Vars {
             language.put("reloadFailed", "reload is Failed");
             language.put("addComplete", "Completed a add objective!");
             language.put("removeComplete", "Completed a remove objective!");
+            language.put("objectAlreadyName","The object name already exists!");
             language.put("unknownName", "unknown Name");
         }
     }

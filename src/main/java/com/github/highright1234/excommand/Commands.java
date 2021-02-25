@@ -65,7 +65,7 @@ public class Commands implements CommandExecutor {
                     try {
                         objective = manager.getMainScoreboard().registerNewObjective(args[1], args[2], args[3]);
                     } catch (IllegalArgumentException e) {
-                        sender.sendMessage(ChatColor.RED+"이미 있는 오브젝티브이름입니다!");
+                        sender.sendMessage(ChatColor.RED+language.get("objectAlreadyName"));
                         return true;
                     }
                     sender.sendMessage(ChatColor.GREEN+language.get("addComplete"));
