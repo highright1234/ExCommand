@@ -52,7 +52,10 @@ public class Commands implements CommandExecutor, TabCompleter {
                         return true;
                     case "remove":
                         try {
-                            manager.getMainScoreboard().getObjective(args[1]);
+                            objective = manager.getMainScoreboard().getObjective(args[1]);
+                            if (objective != null) {
+                                objective.unregister();
+                            }
                             objectiveData.remove(args[1]);
                         } catch (NullPointerException e) {
                             sender.sendMessage(ChatColor.RED + language.get("unknownName"));
