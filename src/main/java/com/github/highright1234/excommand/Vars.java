@@ -10,6 +10,7 @@ import org.bukkit.scoreboard.ScoreboardManager;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import static com.github.highright1234.excommand.Functions.languageSetting;
@@ -22,7 +23,7 @@ public class Vars {
     public static JsonObject jsonObject = new JsonObject();
     public static String now_language = "en_us";
     public static File objectiveDataFileDirectory = new File(ExCommand.getPlugin(ExCommand.class).getDataFolder(),"objectiveData.json");
-    public static HashMap<String, Object> events = new HashMap<>();
+    public static ArrayList<String> events = new ArrayList<>();
     public static HashMap<String, String> language = new HashMap<>();
     public static HashMap<String, String> objectiveData;
 
@@ -38,7 +39,7 @@ public class Vars {
                 objectiveData = new HashMap<>();
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            objectiveData = new HashMap<>();
         }
     }
 

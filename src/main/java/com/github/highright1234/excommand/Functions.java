@@ -16,6 +16,10 @@ public class Functions {
         objectiveData.put(key, value);
         save();
     }
+    public static void removeAndSave(String key) {
+        objectiveData.remove(key);
+        save();
+    }
 
     public static void save() {
         try {
