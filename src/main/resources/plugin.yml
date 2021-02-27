@@ -6,4 +6,10 @@ commands:
   excommand:
     aliases: [ex, ec]
     description: excommand plugin command
-    usage: &4/ex <create/remove/relaod>
+    usage: &4 /ex <create/remove/relaod>
+    permission: ExCommand.ExCommand
+permissions:
+  ExCommand.*:
+    description: ExCommand permission
+  ExCommand.ExCommand:
+    description: ExCommand excute permission

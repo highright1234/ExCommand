@@ -51,8 +51,8 @@ public class Vars {
     public static void languageInit() {
         language.clear();
         if (now_language.equals("ko_kr")) {
-            language.put("add", "/ec add <오브젝티브> <기준> [표시이름]");
-            language.put("remove", "/ec remove <오브젝티브>");
+            language.put("objectiveAdd", "/ec add <오브젝티브> <기준> [표시이름]");
+            language.put("objectiveRemove", "/ec remove <오브젝티브>");
             language.put("reloadSuccessfully", "리로드가 성공적으로 완료되었습니다!");
             language.put("reloadFailed", "리로드를 실패하였습니다");
             language.put("addComplete", "성공적으로 오브젝티브를 만들었습니다!");
@@ -60,8 +60,8 @@ public class Vars {
             language.put("objectAlreadyName","이미 있는 오브젝티브 이름입니다!");
             language.put("unknownName", "알수없는 이름입니다");
         } else {
-            language.put("add", "/ec add <objective> <criteria> [displayName]");
-            language.put("remove", "/ec remove <objective>");
+            language.put("objectiveAdd", "/ec add <objective> <criteria> [displayName]");
+            language.put("objectiveRemove", "/ec remove <objective>");
             language.put("reloadSuccessfully", "reload is Successfully Complete!");
             language.put("reloadFailed", "reload is Failed");
             language.put("addComplete", "Completed a add objective!");
