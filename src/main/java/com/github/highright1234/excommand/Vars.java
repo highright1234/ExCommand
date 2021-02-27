@@ -31,6 +31,9 @@ public class Vars {
         config = ExCommand.getPlugin(ExCommand.class).getConfig();
         languageSetting();
         languageInit();
+        reloadObjectData();
+    }
+    public static void reloadObjectData() {
         Gson gson = new Gson();
         try {
             JsonReader reader = new JsonReader(new FileReader(objectiveDataFileDirectory));

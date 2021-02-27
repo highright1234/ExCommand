@@ -48,6 +48,12 @@ public class Commands implements CommandExecutor, TabCompleter {
                             } else {
                                 sender.sendMessage(ChatColor.GREEN + language.get("reloadFailed"));
                             }
+                        } else if (args[1].equals("all")) {
+                            if (Functions.reloadConfig()) {
+                                sender.sendMessage(ChatColor.GREEN + language.get("reloadSuccessfully"));
+                            } else {
+                                sender.sendMessage(ChatColor.GREEN + language.get("reloadFailed"));
+                            }
                         }
                         return true;
                     case "remove":
@@ -57,6 +63,7 @@ public class Commands implements CommandExecutor, TabCompleter {
                                 objective.unregister();
                             }
                             objectiveData.remove(args[1]);
+                            sender.sendMessage(ChatColor.GREEN+language.get("removeComplete"));
                         } catch (NullPointerException e) {
                             sender.sendMessage(ChatColor.RED + language.get("unknownName"));
                         }
@@ -64,6 +71,18 @@ public class Commands implements CommandExecutor, TabCompleter {
                     case "list":
                         sender.sendMessage(objectiveData + "");
                         return true;
+                }
+            case 3:
+                if (args[0].equals("add")) {
+                    writeAndSave(args[1], args[2]);
+                    try {
+                        objective = manager.getMainScoreboard().registerNewObjective(args[1], args[2], args[1]);
+                    } catch (IllegalArgumentException e) {
+                        sender.sendMessage(ChatColor.RED+language.get("objectAlreadyName"));
+                        return true;
+                    }
+                    sender.sendMessage(ChatColor.GREEN+language.get("addComplete"));
+                    return true;
                 }
             case 4:
                 if (args[0].equals("add")) {
@@ -82,6 +101,36 @@ public class Commands implements CommandExecutor, TabCompleter {
         }
         return true;
     }
+
+    private String slice_range_add(String s, String arg, int endIndex) {
+        if (endIndex < 0) endIndex = s.length() + endIndex;
+        if (s.substring(0, endIndex).equals(arg)) {
+            return s;
+        }
+        return null;
+    }
+
+    private List<String> slice_range_add_arraylist(List<String> s, String arg) {
+        List<String> output = new ArrayList<>();
+        if (arg.isEmpty()) {
+            return s;
+        }
+        for (String a : s) {
+            if (slice_range_add(a, arg, arg.length()) != null) {
+                output.add(slice_range_add(a, arg, arg.length()));
+            }
+        }
+        return output;
+    }
+
+    private void indexOfAdd(String nowArg, ArrayList<String> arrayList, List<String> list) {
+        for (String input: arrayList) {
+            if (input.contains(nowArg)) {
+                list.add(input);
+            }
+        }
+    }
+
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
         List<String> tab = new ArrayList<>();
@@ -90,21 +139,21 @@ public class Commands implements CommandExecutor, TabCompleter {
                 tab.add("add");
                 tab.add("remove");
                 tab.add("reload");
-                return tab;
+                return slice_range_add_arraylist(tab, args[0]);
             case 2:
                 switch (args[0]) {
                     case "add":
                         tab.add("");
                         return tab;
                     case "remove":
-                        tab=new ArrayList<>(objectiveData.keySet());
-                        return tab;
+                        return slice_range_add_arraylist(new ArrayList<>(objectiveData.keySet()), args[1]);
                     case "reload":
-                        tab.add("all");
-                        tab.add("config");
+                        tab.add(slice_range_add("all", args[0], args.length));
+                        tab.add(slice_range_add("config", args[0], args.length));
                 }
             case 3:
-                return events;
+                indexOfAdd(args[2], events, tab);
+                return tab;
 
         }
         tab.add("");
