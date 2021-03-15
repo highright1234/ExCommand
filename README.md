@@ -6,6 +6,7 @@ can make custom scoreboard criteria
 you can set attribute to scoreboard value.
 
 *//TODO*
+
 and you can use the run command with scoreboard value
 (Example: /title @s title "${(scoreboardName).(username)}")
 
@@ -22,6 +23,7 @@ Discord: https://discord.gg/pHQxbM2k8x
 그리고 attribute를 스코어보드 값으로 만들수 있습니다
 
 *//TODO*
+
 그리고 커맨드를 스코어보드값과 같이 사용할수 있습니다
 (예제: /title @s title "${(scoreboardName).(username)}")
 
